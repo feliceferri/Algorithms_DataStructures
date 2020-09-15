@@ -1,7 +1,7 @@
 ﻿Huffman's algorithm 
 
 * Dynamic Programming
-** This was part of the 3 Module of the Stanford Online Algorithms & Data Structures Specialization
+** This was part of the 3rd Module of the Stanford Online Algorithms & Data Structures Specialization
 
 - Compression Algorithm
 - Doesn’t loose of information
