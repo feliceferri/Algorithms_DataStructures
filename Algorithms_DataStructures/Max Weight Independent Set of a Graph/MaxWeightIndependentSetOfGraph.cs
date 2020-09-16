@@ -48,44 +48,43 @@ namespace Algorithms_DataStructures
 
             //O(n^2) space
             List<int>[] indexPointers = new List<int>[values.Count];
+
             //Tried to do it with O(n) space but I couldn't
+            //Used the same approach as with the Aggregated_n0 & Aggregated_n1 with the following lists
             //List<int> IndexPointers_n0 = new List<int>() { 0 };
             //List<int> IndexPointers_n1 = new List<int>() { 0 };
+            //But the code needs history that goes past 2 step.
 
+            //O(1) space for the sum, instead of O(n)
             int Aggregated_n0 = values[0];
             int Aggregated_n1 = values[1];
             indexPointers[0] = new List<int>() { 0 };
             indexPointers[1] = new List<int>() { 0 };
 
             
-
+            //O(n) time 
             for (int i = 2; i < values.Count; i++)
             {
                 int currentSum = 0;
-                //List<int> currentPointers = null;  //Tried to do it with O(n) space but I couldn't
+                
                 if (values[i] + Aggregated_n0 > Aggregated_n1)
                 {
                     currentSum = values[i] + Aggregated_n0;
                     indexPointers[i] = new List<int>(indexPointers[i - 2]);
                     indexPointers[i].Add(i);
-                    //Tried to do it with O(n) space but I couldn't
-                    //currentPointers = IndexPointers_n0;
-                    //currentPointers.Add(i);
+                
                 }
                 else
                 {
                     currentSum = Aggregated_n1;
                     indexPointers[i] = new List<int>(indexPointers[i - 1]);
-                    //Tried to do it with O(n) space but I couldn't
-                    //currentPointers = IndexPointers_n1;
+                   
                 }
 
                 //Swap values to maintain n0 and n1
                 Aggregated_n0 = Aggregated_n1;
                 Aggregated_n1 = currentSum;
-                //Tried to do it with O(n) space but I couldn't
-                //IndexPointers_n0 = IndexPointers_n1;
-                //IndexPointers_n1 = currentPointers;
+                
             }
 
 
