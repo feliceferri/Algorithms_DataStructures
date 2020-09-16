@@ -11,33 +11,6 @@ namespace Algorithms_DataStructures
 {
     class MaxWeightIndependentSetOfGraph
     {
-        public class Node
-        {
-            public int? label { get; set; }
-            public int weight { get; set; }
-            public Node right { get; set; }
-            public Node left { get; set; }
-
-            public Node(int? label, int weight)
-            {
-                this.label = label;
-                this.weight = weight;
-            }
-        }
-
-        public class NodeExtended : Node
-        {
-            public NodeExtended(Node node, int Level, string Encoding) : base(node.label, node.weight)
-            {
-                this.right = node.right;
-                this.left = node.left;
-                this.level = Level;
-                this.encoding = Encoding;
-            }
-            public int level { get; set; }
-            public string encoding { get; set; }
-        }
-
         static void Main(string[] args)
         {
             var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
