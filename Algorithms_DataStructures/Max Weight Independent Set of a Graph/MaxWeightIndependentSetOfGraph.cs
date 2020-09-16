@@ -88,13 +88,25 @@ namespace Algorithms_DataStructures
             }
 
 
-            //Iterate through the IndexPointer array to reconstruct the Indexes Used
-            List<int> IndexesUsed = new List<int>();
-            int index = values.Count - 1;
+            //Print Results
+            //I'll create a HashSet to have O(1) when searching if the index is part of the Max Subset
+            HashSet<int> MaxSubsetIndexes = new HashSet<int>(indexPointers[indexPointers.Length -1]);
+            int total = 0;
+            Console.WriteLine("Indexes used: " + total);
+            Console.WriteLine("");
 
-           
+            for (int i = 0; i < values.Count;i++)
+            {
+                if (MaxSubsetIndexes.Contains(i))
+                {
+                    Console.WriteLine("Index: " + i + " => " + values[i]);
+                    total += values[i];
+                }
+            }
 
-            Console.WriteLine(string.Join(" ",IndexesUsed));
+            Console.WriteLine("");
+            Console.WriteLine("TOTALS SUM: " + total);
+
         }
 
      
