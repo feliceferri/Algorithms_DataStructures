@@ -48,7 +48,7 @@ namespace Algorithms_DataStructures
             //string[] StringArray = new string[] {"8","1",  "10","100","1000","10000", "100000", "1000000", "10000000" };
 
 
-
+            //O(n Log n) | O (n)
             SortedDictionary<int, Node> sortedDic_Weight_Node = new SortedDictionary<int, Node>();
 
             ////// LOAD DATA .txt into SortedDictionary
@@ -63,13 +63,13 @@ namespace Algorithms_DataStructures
             }
 
 
-            ////// CREATE THE TREE 
+            ////// CREATE THE TREE   O(n Log n) => its a n loop, but it has the sorted dic inside
             while (sortedDic_Weight_Node.Count > 1)
             {
                 MergeTheTwoWithMoreWeight(sortedDic_Weight_Node);
             }
 
-            ///// PRINT BINARY TREE RESULTS WITH THE LEVELS
+            ///// PRINT BINARY TREE RESULTS WITH THE LEVELS  O(n) | O(n)
             BFSToDisplayNodesAndTreeLevels(sortedDic_Weight_Node.First().Value);
         }
 

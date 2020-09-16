@@ -1,5 +1,7 @@
 ﻿Huffman's algorithm 
 
+O(n log n) | O(n)    * Needs to sort the frequencies
+
 * Dynamic Programming
 ** This was part of the 3rd Module of the Stanford Online Algorithms & Data Structures Specialization
 
