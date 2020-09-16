@@ -36,7 +36,8 @@ namespace Algorithms_DataStructures
             public string encoding { get; set; }
         }
 
-        static void Main(string[] args)
+        //Rename to Main to use it
+        static void Main_Renamed(string[] args)
         {
             var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             

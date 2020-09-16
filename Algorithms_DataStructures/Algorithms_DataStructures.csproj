@@ -7,10 +7,17 @@
 
   <ItemGroup>
     <None Remove="Huffman_TestData_Stanford.txt" />
+    <None Remove="Max Weight Independent Set of a Graph\TestData_Stanford.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Huffman\TestData_Stanford.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Max Weight Independent Set of a Graph\TestData_Stanford.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
