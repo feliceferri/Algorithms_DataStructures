@@ -44,17 +44,13 @@ namespace Algorithms_DataStructures
                     Console.WriteLine("Result  Index used: 1  Max Weight:" + values[1]);
                 return;
             }
+            ///////////////////////
 
 
             //O(n^2) space
             List<int>[] indexPointers = new List<int>[values.Count];
 
-            //Tried to do it with O(n) space but I couldn't
-            //Used the same approach as with the Aggregated_n0 & Aggregated_n1 with the following lists
-            //List<int> IndexPointers_n0 = new List<int>() { 0 };
-            //List<int> IndexPointers_n1 = new List<int>() { 0 };
-            //But the code needs history that goes past 2 step.
-
+         
             //O(1) space for the sum, instead of O(n)
             int Aggregated_n0 = values[0];
             int Aggregated_n1 = values[1];
@@ -106,7 +102,7 @@ namespace Algorithms_DataStructures
 
             Console.WriteLine("");
             Console.WriteLine("TOTALS SUM: " + total);
-
+            //////////////////////////////////////////////////////////
         }
 
      
