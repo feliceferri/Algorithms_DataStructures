@@ -54,6 +54,7 @@ namespace Algorithms_DataStructures.Knapsack_Problem
             for (int i = 0; i < NumberOfItems + 1; i++)
                 matrixPrev[i] = 0;
 
+			//O(nm) | O(1)
             for (int i = 0; i < NumberOfItems; i++)
             {
                 int value = items[i, 0];
