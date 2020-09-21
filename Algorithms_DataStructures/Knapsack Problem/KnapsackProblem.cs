@@ -12,11 +12,17 @@ namespace Algorithms_DataStructures.Knapsack_Problem
 		{
 			var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-			string[] StringArray = File.ReadAllLines(rootDir + @"\Knapsack Problem\stanford_knapsack1.txt");
+			//string[] StringArray = File.ReadAllLines(rootDir + @"\Knapsack Problem\stanford_knapsack1.txt");
 			//USE THIS FOR A LARGE DATASET
-			//string[] StringArray = File.ReadAllLines(rootDir + @"\Knapsack Problem\stanford_knapsack_big.txt");
+			string[] StringArray = File.ReadAllLines(rootDir + @"\Knapsack Problem\stanford_knapsack_big.txt");
+			/*string[] StringArray  = new string[] { "10 4",
+													"1 2",
+													"4 3",
+													"5 6",
+													"6 7" };
+			*/
 
-			
+
 			int capacity = 0;
 			int[,] items = null;
 			////// LOAD DATA .txt into SortedDictionary
@@ -38,38 +44,42 @@ namespace Algorithms_DataStructures.Knapsack_Problem
 				NumberOfItems++;
 			}
 
-		
 
-				int[,] matrix = new int[items.GetLength(0) + 1, capacity + 1]; //Adding Empty Row at the top
-																			   //and 0 as a first column
 
-			    
-				for (int i = 0; i < matrix.GetLength(0); i++)
-					matrix[0, i] = 0;
+            int[] matrixPrev = new int[capacity + 1];
+            int[] matrixCurrent = new int[capacity + 1];
 
-				for (int i = 0; i < items.GetLength(0); i++)
-				{
-					int value = items[i, 0];
-					int weight = items[i, 1];
-					int matrixRow = i + 1; //because I added an empty at the beggining.
 
-					for (int cap = 0; cap < matrix.GetLength(1); cap++)
-					{
-						int newValue = 0;
-						if (weight <= cap)
-						{
-							newValue = value;  //Only 1 is allowed
-							newValue = newValue + matrix[matrixRow - 1, cap - weight];
-						}
-						matrix[matrixRow, cap] = Math.Max(matrix[matrixRow - 1, cap], newValue);
 
-					}
-				}
+            for (int i = 0; i < NumberOfItems + 1; i++)
+                matrixPrev[i] = 0;
 
-				var x = 12;
-			}
+            for (int i = 0; i < NumberOfItems; i++)
+            {
+                int value = items[i, 0];
+                int weight = items[i, 1];
 
-		//answer question 1 : 2493893
+                for (int cap = 0; cap < capacity + 1; cap++)
+                {
+                    int newValue = 0;
+                    if (weight <= cap)
+                    {
+                        newValue = value;  //Only 1 is allowed
+                        newValue = newValue + matrixPrev[cap - weight];
+                    }
+                    matrixCurrent[cap] = Math.Max(matrixPrev[cap], newValue);
+                }
 
-	}
+                //SWAP ROWS
+                matrixPrev = matrixCurrent;
+                matrixCurrent = new int[capacity + 1];
+            }
+
+			Console.WriteLine(matrixPrev[capacity]); //Not using matrixCurrent because that has been alrady swapped.
+
+		}
+
+        //answer question 1 : 2493893
+
+    }
 }
