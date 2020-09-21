@@ -25,7 +25,7 @@ namespace Algorithms_DataStructures.Knapsack_Problem
 
 			int capacity = 0;
 			int[,] items = null;
-			////// LOAD DATA .txt into SortedDictionary
+			////// LOAD DATA .txt ///////////////
 			int NumberOfItems = -1; //First row in the txt. is the header, not an item.
 			foreach (string s in StringArray)
 			{
@@ -43,14 +43,14 @@ namespace Algorithms_DataStructures.Knapsack_Problem
 
 				NumberOfItems++;
 			}
-
+			////////////////////////////////////
 
 
             int[] matrixPrev = new int[capacity + 1];
             int[] matrixCurrent = new int[capacity + 1];
 
 
-
+			//LOADS 0s as it were rows[0] values for each capacity
             for (int i = 0; i < NumberOfItems + 1; i++)
                 matrixPrev[i] = 0;
 
@@ -79,7 +79,6 @@ namespace Algorithms_DataStructures.Knapsack_Problem
 
 		}
 
-        //answer question 1 : 2493893
-
+    
     }
 }
