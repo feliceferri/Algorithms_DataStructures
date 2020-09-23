@@ -1,9 +1,9 @@
 ﻿Max Weight Independent Set of a Graph
 (Max Subset of non adjacent numbers)
 
-O(n) | O(n^2)  **The reason is cuadratic space is because to print the actual subset, we need to store the array of steps for each n
-			   **I tried to do it saving the steps for the previous two positions but is not enough there are jumps that are over 2 spots
-			   **and you dont know it until you have pass it.
+O(n) | O(n^2)   **The reason is cuadratic space is because to print the actual subset, we need to store the array of steps for each n
+		**I tried to do it saving the steps for the previous two positions but is not enough, there are jumps that are over 2 spots
+		**and you dont know it until you have pass it.
 
 * Dynamic Programming
 ** This was part of the 3rd Module of the Stanford Online Algorithms & Data Structures Specialization
