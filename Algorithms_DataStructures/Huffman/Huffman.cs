@@ -95,6 +95,8 @@ namespace Algorithms_DataStructures
             sortedDic_Weight_Node.Add(lastWeightNodePair.Key + secondLastWeightNodePair.Key, n);
         }
 
+        ///Breadth First Search to display the results
+        ///O(n) | O(n) * Last level in a balanced tree account almost for half of the n, and all those leaves will be stored in memory that's why BFS is O(n) in Space Complexity
         private static void BFSToDisplayNodesAndTreeLevels(Node root)
         {
             Queue<NodeExtended> queue = new Queue<NodeExtended>();
