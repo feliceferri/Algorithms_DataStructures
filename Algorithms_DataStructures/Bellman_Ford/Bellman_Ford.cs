@@ -21,21 +21,25 @@ namespace Algorithms_DataStructures.Bellman_Ford
             this.Weight = weigth;
         }
     }
+
+    //O(NM) | O (N) For Single Source
+    //O(N^3xM) | O(N) For All Pairs Comparison (Will iterate through each source)
+    //O(N^2xM) | O(N) For All Pairs Comparison with TRICK => Creating an External Vertice that will have an edge to all vertices, so there wont be unreachable vertices.
     class Bellman_Ford
     {
         static void Main(string[] args)
         {
 
-            //List<Edge> Edges = new List<Edge>();
             Dictionary<int, List<Edge>> dic_Tail_Edges = new Dictionary<int, List<Edge>>();
             
 
+            ////////////////////////////////////////////////////////
+            /// LOAD DATA FROM FILE ////////////////////////////////////
             var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             string[] StringArray = File.ReadAllLines(rootDir + @"\Bellman_Ford\stanford_g3.txt");
             //string[] StringArray = File.ReadAllLines(rootDir + @"\Bellman_Ford\input_random_10_8.txt");
-            //string[] StringArray = File.ReadAllLines(rootDir + @"\Bellman_Ford\input_random_30_256.txt");
-
+            
             dic_Tail_Edges.Add(0, new List<Edge>()); //This is a trick that creates a new "external/source" vertice, that will have edges to all existing vertices
                                                      //In this way there wont be "unreacheable" edges.
 
@@ -60,6 +64,7 @@ namespace Algorithms_DataStructures.Bellman_Ford
                 }
                 iRow++;
             }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
             /////TEST DATA WITHOUT NEGATIVE COST CYCLE
@@ -93,38 +98,43 @@ namespace Algorithms_DataStructures.Bellman_Ford
             //dic_Tail_Edges[5].Add(new Edge(5, 4, -1));
             //dic_Tail_Edges.Add(6, new List<Edge>());
             //dic_Tail_Edges[6].Add(new Edge(6, 5, 1));
+                        
 
-
-            int[] currentMinCostFromSource = new int[vertices + 1];
-            currentMinCostFromSource = Enumerable.Repeat(int.MaxValue,vertices +1).ToArray(); //Index 0 doesnt count.
-
-            currentMinCostFromSource[0] = 0; //Source Vertice
+            
             int ShortestCostBetweenTwoVertices = int.MaxValue;
 
+            //All Pairs: O(N^2 x M) | O(N)
+            //To compute all Pairs we have to iterate through each Vertice to set it as the source (this will take care of unreacheable vertices)
+            //for (int sourceEdge = 1; sourceEdge <= vertices; sourceEdge++)
+            //{
+                int[] currentMinCostFromSource = new int[vertices + 1];
+                currentMinCostFromSource = Enumerable.Repeat(int.MaxValue, vertices + 1).ToArray(); //Index 0 doesnt count.
+                //currentMinCostFromSource[sourceEdge] = 0; //Source Vertice
+                currentMinCostFromSource[0] = 0; //this part of the Trick
 
-            //O(N^2 x M) | O(N)
-            for (int i = 0; i <= vertices +1; i++)
-            {
-                if( i== vertices +1)
+                //O(N x M) | O(N)
+                for (int i = 1; i <= vertices + 1; i++)
                 {
-                    Console.WriteLine("There is a negative cost cycle");
-                    return;
-                }
+                    if (i == vertices + 1)
+                    {
+                        Console.WriteLine("There is a negative cost cycle");
+                        return;
+                    }
 
-                bool CostMinimized = ComputeShortestDistancesToAllVertices(dic_Tail_Edges, i, currentMinCostFromSource, ref ShortestCostBetweenTwoVertices);
-                if(CostMinimized == false)
-                {
-                    Console.WriteLine("No changes between the last two cycles");
-                    break;
-                }
+                    bool CostMinimized = ComputeShortestDistancesToAllVertices(dic_Tail_Edges, i, currentMinCostFromSource, ref ShortestCostBetweenTwoVertices);
+                    if (CostMinimized == false)
+                    {
+                        Console.WriteLine("No changes between the last two cycles");
+                        break;
+                    }
 
-            }
+                }
+            //}
 
             Console.WriteLine("End => Shortests Cost Path Between two Vertices : " + ShortestCostBetweenTwoVertices);
         }
 
         //O(M) **Inner loops but at the end of the day is analizying each Edge once.
-       
         private static bool ComputeShortestDistancesToAllVertices(Dictionary<int, List<Edge>> dic_Tail_Edges, int MaxNumberOfEdgesAllowed, int[] shortesPathCost,
                                                                     ref int ShortestCostBetweenTwoVertices)
         {
