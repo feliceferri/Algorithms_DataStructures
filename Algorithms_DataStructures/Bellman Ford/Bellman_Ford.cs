@@ -37,7 +37,7 @@ namespace Algorithms_DataStructures.Bellman_Ford
             /// LOAD DATA FROM FILE ////////////////////////////////////
             var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-            string[] StringArray = File.ReadAllLines(rootDir + @"\Bellman_Ford\stanford_g3.txt");
+            string[] StringArray = File.ReadAllLines(rootDir + @"\Bellman Ford\stanford_g3.txt");
             //string[] StringArray = File.ReadAllLines(rootDir + @"\Bellman_Ford\input_random_10_8.txt");
             
             dic_Tail_Edges.Add(0, new List<Edge>()); //This is a trick that creates a new "external/source" vertice, that will have edges to all existing vertices
