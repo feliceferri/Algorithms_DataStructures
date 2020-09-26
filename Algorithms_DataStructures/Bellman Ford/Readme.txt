@@ -14,6 +14,7 @@ O(NxM) | O(N) For All Pairs Comparison with a TRICK => Creating an External Vert
 - Allows negative cost edges
 - Doesn't allow negative cost cycles, but it detects them.
 
+** This code will output the shortest path of all pairs, as its needed for the Stanford Algorithm Specialization
 
 Context
 - It has to Iterate through each vertice at least once, and if there is no negative cost cycles there will be a moment where the paths costs are not
