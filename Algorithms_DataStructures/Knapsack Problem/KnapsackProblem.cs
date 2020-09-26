@@ -8,7 +8,7 @@ namespace Algorithms_DataStructures.Knapsack_Problem
     class KnapsackProblem
     {
 		//Rename to Main to use it
-		static void Main(string[] args)
+		static void Main_Renamed(string[] args)
 		{
 			var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
