@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <None Remove="Bellman_Ford\input_random_10_8.txt" />
-    <None Remove="Bellman_Ford\input_random_30_256.txt" />
     <None Remove="Bellman_Ford\stanford_g1.txt" />
     <None Remove="Bellman_Ford\stanford_g2.txt" />
     <None Remove="Bellman_Ford\stanford_g3.txt" />
@@ -20,9 +19,6 @@
   <ItemGroup>
     <Content Include="Bellman_Ford\input_random_10_8.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bellman_Ford\input_random_30_256.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Bellman_Ford\stanford_g1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
