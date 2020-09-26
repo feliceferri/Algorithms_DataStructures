@@ -3,8 +3,8 @@
 O(NM) | O (N) For Single Source
 
 ** Can be used for All Pais Comparison (as Floyd-Warshall Algorithm does)
-O(N^3xM) | O(N) For All Pairs Comparison (Will iterate through each source)
-O(N^2xM) | O(N) For All Pairs Comparison with a TRICK => Creating an External Vertice that will have an edge to all vertices, so there wont be unreachable vertices.
+O(N^2xM) | O(N) For All Pairs Comparison (Will iterate through each source)
+O(NxM) | O(N) For All Pairs Comparison with a TRICK => Creating an External Vertice that will have an edge to all vertices, so there wont be unreachable vertices.
 
 * Dynamic Programming
 ** This was part of the 4th Module of the Stanford Online Algorithms & Data Structures Specialization
@@ -36,9 +36,9 @@ STEPS - Single Source
 
 
 NOTE: for All Pairs
-- A first Loop can be done that will iterate trough each vertice setting it as the Source vertice, that will be N^3 X M
+- A first Loop can be done that will iterate trough each vertice setting it as the Source vertice, that will be N^2 X M
 - An improved trick is not to create a third loop, but to create a new "external vertice" which edges to all existing vertices, so no vertice is unreacheable.
 
-- In the code you will find this Improved version as the default, and the N^3xM as Commented lines.
+- In the code you will find this Improved version as the default, and the N^2xM as Commented lines.
 
 
