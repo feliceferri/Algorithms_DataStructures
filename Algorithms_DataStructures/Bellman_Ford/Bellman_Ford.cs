@@ -23,8 +23,8 @@ namespace Algorithms_DataStructures.Bellman_Ford
     }
 
     //O(NM) | O (N) For Single Source
-    //O(N^3xM) | O(N) For All Pairs Comparison (Will iterate through each source)
-    //O(N^2xM) | O(N) For All Pairs Comparison with TRICK => Creating an External Vertice that will have an edge to all vertices, so there wont be unreachable vertices.
+    //O(N^2xM) | O(N) For All Pairs Comparison (Will iterate through each source)
+    //O(NxM) | O(N) For All Pairs Comparison with TRICK => Creating an External Vertice that will have an edge to all vertices, so there wont be unreachable vertices.
     class Bellman_Ford
     {
         static void Main(string[] args)
