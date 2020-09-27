@@ -6,10 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Bellman Ford\input_random_10_8.txt" />
-    <None Remove="Bellman Ford\stanford_g1.txt" />
-    <None Remove="Bellman Ford\stanford_g2.txt" />
-    <None Remove="Bellman Ford\stanford_g3.txt" />
+    <None Remove="Bellman-Ford\input_random_10_8.txt" />
+    <None Remove="Bellman-Ford\stanford_g1.txt" />
+    <None Remove="Bellman-Ford\stanford_g2.txt" />
+    <None Remove="Bellman-Ford\stanford_g3.txt" />
+    <None Remove="Floyd-Warshall\stanford_g3.txt" />
     <None Remove="Huffman_TestData_Stanford.txt" />
     <None Remove="Knapsack Problem\stanford_knapsack1.txt" />
     <None Remove="Knapsack Problem\stanford_knapsack_big.txt" />
@@ -17,16 +18,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Bellman Ford\input_random_10_8.txt">
+    <Content Include="Bellman-Ford\input_random_10_8.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Bellman Ford\stanford_g1.txt">
+    <Content Include="Bellman-Ford\stanford_g1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Bellman Ford\stanford_g2.txt">
+    <Content Include="Bellman-Ford\stanford_g2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Bellman Ford\stanford_g3.txt">
+    <Content Include="Bellman-Ford\stanford_g3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Floyd-Warshall\stanford_g3.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Huffman\TestData_Stanford.txt">
@@ -50,9 +54,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Bellman Ford\stanford_g1.txt" />
-    <Resource Include="Bellman Ford\stanford_g2.txt" />
-    <Resource Include="Bellman Ford\stanford_g3.txt" />
+    <Resource Include="Bellman-Ford\stanford_g1.txt" />
+    <Resource Include="Bellman-Ford\stanford_g2.txt" />
+    <Resource Include="Bellman-Ford\stanford_g3.txt" />
   </ItemGroup>
 
 </Project>
