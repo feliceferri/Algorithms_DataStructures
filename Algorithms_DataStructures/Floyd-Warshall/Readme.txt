@@ -12,3 +12,5 @@ O(N^3) | O (N^2)
 
 
 It stores the shortest distance between each vertice in a 2D Matrix.
+
+Note: The Bellman-Ford algorithm (I also coded it) can be use to calculate All Pair Shortest Path in O(NM) time
