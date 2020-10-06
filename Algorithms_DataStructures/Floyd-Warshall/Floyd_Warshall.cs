@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+
+
 namespace Algorithms_DataStructures.Floyd_Warshall
 {
     internal class Edge
@@ -21,7 +23,7 @@ namespace Algorithms_DataStructures.Floyd_Warshall
     }
     class Floyd_Warshall
     {
-        static void Main(string[] args)
+        static void MainRenamed(string[] args)
         {
             List<Edge> edges = new List<Edge>();
             int vertices = 0;

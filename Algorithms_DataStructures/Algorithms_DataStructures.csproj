@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Travel Salesman Problem %28NP Complete%29\**" />
+    <EmbeddedResource Remove="Travel Salesman Problem %28NP Complete%29\**" />
+    <None Remove="Travel Salesman Problem %28NP Complete%29\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Bellman-Ford\input_random_10_8.txt" />
     <None Remove="Bellman-Ford\stanford_g1.txt" />
     <None Remove="Bellman-Ford\stanford_g2.txt" />
@@ -15,6 +21,7 @@
     <None Remove="Knapsack Problem\stanford_knapsack1.txt" />
     <None Remove="Knapsack Problem\stanford_knapsack_big.txt" />
     <None Remove="Max Weight Independent Set of a Graph\TestData_Stanford.txt" />
+    <None Remove="TSP %28NP Complete%29 Greedy approach\stanford_TSP2.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +56,9 @@
 
   <ItemGroup>
     <Content Include="Knapsack Problem\stanford_knapsack1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TSP (NP Complete) Greedy approach\stanford_TSP2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
