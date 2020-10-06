@@ -54,15 +54,12 @@ namespace Algorithms_DataStructures.TSP__NP_Complete__Greedy_approach
 
             Double totalCost = 0;
 
-            
             while(LocationsToVisit.Count > 0)
             {
-               
                 Double Distance;
                 (currentLocation, Distance) = GetClosestCity(currentLocation, LocationsToVisit);
                 LocationsToVisit.Remove(currentLocation);
                 totalCost += Distance;
-
             }
 
 
@@ -73,21 +70,17 @@ namespace Algorithms_DataStructures.TSP__NP_Complete__Greedy_approach
 
         }
 
-        /// <summary>
+      
+        
         /// Get the closest city by Euclidean Distance, if there is a match, the one with lowest index wins
-        /// </summary>
-        /// <param name="SourceCity"></param>
-        /// <param name="CitiesVisited"></param>
-        /// <returns></returns>
         private static (Location, double) GetClosestCity(Location SourceCity, List<Location> LocationsToVisit)
         {
             Location res = null;
             double MinDistance = double.MaxValue;
 
-            int i = 0;
-
             foreach(Location loc in LocationsToVisit)
             {
+
                 double distance = Distance(SourceCity, loc);
                 if (distance < MinDistance)
                 {
@@ -101,7 +94,6 @@ namespace Algorithms_DataStructures.TSP__NP_Complete__Greedy_approach
                         res = loc;
                     }
                 }
-                i++;
             }
 
             return (res, MinDistance);
