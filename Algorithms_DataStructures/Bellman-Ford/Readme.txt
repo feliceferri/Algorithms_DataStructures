@@ -2,7 +2,7 @@
 
 O(NM) | O (N) For Single Source
 
-** Can be used for All Pais Comparison (as Floyd-Warshall Algorithm does)
+** Can be used for All Pairs Comparison (as Floyd-Warshall Algorithm does)
 O(N^2xM) | O(N) For All Pairs Comparison (Will iterate through each source)
 O(NxM) | O(N) For All Pairs Comparison with a TRICK => Creating an External Vertice that will have an edge to all vertices, so there wont be unreachable vertices.
 
