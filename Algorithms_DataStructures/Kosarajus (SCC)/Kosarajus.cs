@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Algorithms_DataStructures.Kosarajus__SCC_
 {
-    class Kosarajus
+    internal class Kosarajus
     {
-        static void Main(string[] args)
+        static void MainRenamed(string[] args)
         {
             Dictionary<int, List<int>> dic_Vertice_Edges = new Dictionary<int, List<int>>();
             Dictionary<int, List<int>> Inverteddic_Vertice_Edges = new Dictionary<int, List<int>>();
@@ -44,6 +44,7 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
             Console.WriteLine("Number of Strongly Connected Components: " + SCCs.Count());
         }
 
+      
         ///Receives the Original and Transpose version of the Graph
         ///Just because in this case, it makes more sense to create the Original and Transpose one in tandem
         internal static List<List<int>> GetSCC(Dictionary<int, List<int>> dic_Vertice_Edges, Dictionary<int, List<int>> Inverteddic_Vertice_Edges)
@@ -81,6 +82,7 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
             return SCCs;
         }
 
+       
         private static List<int> DFS_GetSCC(Dictionary<int, List<int>> dic_Vertice_Edges, int vertice, HashSet<int> ExploredVertices)
         {
             List<int> res = new List<int>();
