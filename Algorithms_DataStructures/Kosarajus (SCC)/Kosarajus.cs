@@ -39,17 +39,23 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
                 Inverteddic_Vertice_Edges[VerticeEdge].Add(Convert.ToInt32(VerticeLabel));
             }
 
+            //3) Iterate through each of the nodes once, checking in a hastable if the node has not been visited previously
             int scoreCounter = 0;
             foreach (var item in Inverteddic_Vertice_Edges)
             {
                 if (ExploredVerticesFirstPass.Contains(item.Key) == false)
                 {
+                    //4) If the node has not been visited, then Do a Depth First Search the last node found in the DFS will be scored at Score++
                     scoreCounter = DFS(Inverteddic_Vertice_Edges, item.Key, ExploredVerticesFirstPass, scoreCounter, dic_Vertice_Score);
                 }
             }
 
+            //7) Order the Vertices based on the Score from highest to lowest
             List<int> VerticesSortedByScoreDesc_ = dic_Vertice_Score.OrderByDescending(x => x.Value).Select(x => x.Key).ToList();
+            
             List<List<int>> SCCs = new List<List<int>>();
+            
+            //8) Iterate through all the nodes another time based on the Scoring Order(7)
             foreach (int vertice in VerticesSortedByScoreDesc_)
             {
                 if (ExploredVerticesSecondPass.Contains(vertice) == false)
@@ -124,13 +130,10 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
                 if (Flag_AddedEdge == false)
                 {
                     //Close this level
+                    //5) As DFS backtracks will be adding Score++ to all the parents. So the node that started the DFS will have the highest Score
                     vertice = stack.Pop();
                     ScoreCounter++;
-                    if (dic_Vertice_Score.ContainsKey(vertice) == true)
-                    {
-                        int z = 12;
-                    }
-                    else
+                    if (dic_Vertice_Score.ContainsKey(vertice) == false)
                         dic_Vertice_Score.Add(vertice, ScoreCounter);
                 }
 
