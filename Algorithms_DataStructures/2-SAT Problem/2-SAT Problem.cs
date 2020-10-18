@@ -17,8 +17,9 @@ namespace Algorithms_DataStructures._2_SAT_Problem
 
             //Load Data from file
             var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string[] StringArray = File.ReadAllLines(rootDir + @"\2-SAT Problem\stanford_2sat6.txt");
+            string[] StringArray = File.ReadAllLines(rootDir + @"\2-SAT Problem\stanford_2sat1.txt");
 
+            //O(N) N being the number of Disjunctions
             //Create regular and inverted/transposed Graph
             int i = 0;
             foreach (string s in StringArray)
@@ -76,6 +77,7 @@ namespace Algorithms_DataStructures._2_SAT_Problem
             }
             ////////////////////////////////
 
+            //O(V+E) | O(N)   
             List<List<int>> SCCs = Kosarajus__SCC_.Kosarajus.GetSCC(dic_Vertice_Edges, Inverteddic_Vertice_Edges);
 
             //check if there is X & -X in the same Strongly Connected Component
@@ -84,17 +86,15 @@ namespace Algorithms_DataStructures._2_SAT_Problem
                 HashSet<int> hashVertices = new HashSet<int>(SCC.Count);
                 foreach(int vertice in SCC)
                 {
-                    hashVertices.Add(vertice);
-                }
-
-                foreach (int vertice in SCC)
-                {
-                    if(hashVertices.Contains(vertice * -1))
+                    if (hashVertices.Contains(vertice * -1))
                     {
                         Console.WriteLine("Safistability: False");
                         return;
                     }
+
+                    hashVertices.Add(vertice);
                 }
+                                
             }
 
 

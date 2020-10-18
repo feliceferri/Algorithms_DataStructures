@@ -1,6 +1,6 @@
 ﻿Kosaraju's (Strongly Connected Components)
 
-O(2N) | O(N)   
+O(V+E) | O(N)   
 
 * This was part of the 2nd Module of the Stanford Online Algorithms & Data Structures Specialization
 
