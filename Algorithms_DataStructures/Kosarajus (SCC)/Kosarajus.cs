@@ -10,17 +10,15 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
     {
         static void Main(string[] args)
         {
-            //List<Vertice> vertices = new List<Vertice>();
             Dictionary<int, List<int>> dic_Vertice_Edges = new Dictionary<int, List<int>>();
             Dictionary<int, List<int>> Inverteddic_Vertice_Edges = new Dictionary<int, List<int>>();
-            Dictionary<int, int> dic_Vertice_Score = new Dictionary<int, int>();
-            HashSet<int> ExploredVerticesFirstPass = new HashSet<int>();
-            HashSet<int> ExploredVerticesSecondPass = new HashSet<int>();
+                        
 
             //Load Data from file
             var rootDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string[] StringArray = File.ReadAllLines(rootDir + @"\Kosarajus (SCC)\stanford_SCC.txt");
             
+            //Create regular and inverted/transposed Graph
             foreach (string s in StringArray)
             {
                 string[] splits = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -33,14 +31,28 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
 
                 dic_Vertice_Edges[VerticeLabel].Add(Convert.ToInt32(VerticeEdge));
 
-                ////Inverted
+                ////1) Inverted/Transpose Grapth
                 if (Inverteddic_Vertice_Edges.ContainsKey(VerticeEdge) == false)
                     Inverteddic_Vertice_Edges.Add(VerticeEdge, new List<int>());
                 Inverteddic_Vertice_Edges[VerticeEdge].Add(Convert.ToInt32(VerticeLabel));
             }
+            ////////////////////////////////
+
+            List<List<int>> SCCs = GetSCC(dic_Vertice_Edges, Inverteddic_Vertice_Edges);
+
+
+            Console.WriteLine("Number of Strongly Connected Components: " + SCCs.Count());
+        }
+
+        ///Receives the Original and Transpose version of the Graph
+        ///Just because in this case, it makes more sense to create the Original and Transpose one in tandem
+        internal static List<List<int>> GetSCC(Dictionary<int, List<int>> dic_Vertice_Edges, Dictionary<int, List<int>> Inverteddic_Vertice_Edges)
+        {
+            Dictionary<int, int> dic_Vertice_Score = new Dictionary<int, int>();
 
             //3) Iterate through each of the nodes once, checking in a hastable if the node has not been visited previously
             int scoreCounter = 0;
+            HashSet<int> ExploredVerticesFirstPass = new HashSet<int>();
             foreach (var item in Inverteddic_Vertice_Edges)
             {
                 if (ExploredVerticesFirstPass.Contains(item.Key) == false)
@@ -52,10 +64,11 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
 
             //7) Order the Vertices based on the Score from highest to lowest
             List<int> VerticesSortedByScoreDesc_ = dic_Vertice_Score.OrderByDescending(x => x.Value).Select(x => x.Key).ToList();
-            
+
             List<List<int>> SCCs = new List<List<int>>();
-            
+
             //8) Iterate through all the nodes another time based on the Scoring Order(7)
+            HashSet<int> ExploredVerticesSecondPass = new HashSet<int>();
             foreach (int vertice in VerticesSortedByScoreDesc_)
             {
                 if (ExploredVerticesSecondPass.Contains(vertice) == false)
@@ -65,9 +78,7 @@ namespace Algorithms_DataStructures.Kosarajus__SCC_
                 }
             }
 
-            var SCCs_ordered = SCCs.OrderByDescending(x => x.Count).ToList();
-
-            Console.WriteLine("Number of Strongly Connected Components: " + SCCs_ordered.Count());
+            return SCCs;
         }
 
         private static List<int> DFS_GetSCC(Dictionary<int, List<int>> dic_Vertice_Edges, int vertice, HashSet<int> ExploredVertices)
