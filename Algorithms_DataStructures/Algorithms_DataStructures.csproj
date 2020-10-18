@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="2-SAT Problem\n10Test.txt" />
     <None Remove="Bellman-Ford\input_random_10_8.txt" />
     <None Remove="Bellman-Ford\stanford_g1.txt" />
     <None Remove="Bellman-Ford\stanford_g2.txt" />
@@ -20,6 +21,7 @@
     <None Remove="Huffman_TestData_Stanford.txt" />
     <None Remove="Knapsack Problem\stanford_knapsack1.txt" />
     <None Remove="Knapsack Problem\stanford_knapsack_big.txt" />
+    <None Remove="Kosarajus %28SCC%29\stanford_SCC.txt" />
     <None Remove="Max Weight Independent Set of a Graph\TestData_Stanford.txt" />
     <None Remove="TSP %28NP Complete%29 Greedy approach\stanford_TSP2.txt" />
   </ItemGroup>
@@ -64,9 +66,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="2-SAT Problem\n10Test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Bellman-Ford\stanford_g1.txt" />
     <Resource Include="Bellman-Ford\stanford_g2.txt" />
     <Resource Include="Bellman-Ford\stanford_g3.txt" />
+    <Content Include="Kosarajus (SCC)\stanford_SCC.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

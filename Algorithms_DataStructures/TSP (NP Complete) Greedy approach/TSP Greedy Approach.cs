@@ -21,7 +21,7 @@ namespace Algorithms_DataStructures.TSP__NP_Complete__Greedy_approach
                 this.Index = index;
             }
         }
-        private static void Main(string[] args)
+        private static void MainRenamed(string[] args)
         {
             int vertices = 0;
             List<Location> LocationsToVisit = null;
