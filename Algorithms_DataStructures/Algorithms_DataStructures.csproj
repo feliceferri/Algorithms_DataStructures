@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="2-SAT Problem\n10Test.txt" />
     <None Remove="2-SAT Problem\stanford_2sat1.txt" />
     <None Remove="2-SAT Problem\stanford_2sat2.txt" />
     <None Remove="2-SAT Problem\stanford_2sat3.txt" />
@@ -90,9 +89,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="2-SAT Problem\n10Test.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Bellman-Ford\stanford_g1.txt" />
     <Resource Include="Bellman-Ford\stanford_g2.txt" />
     <Resource Include="Bellman-Ford\stanford_g3.txt" />
